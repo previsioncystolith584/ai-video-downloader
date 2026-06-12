@@ -23,6 +23,15 @@ metadata:
 - Không có `--voice` → AI tự chọn voice từ CSV
 - Bất kỳ file nào thiếu → tự tạo, không hỏi
 
+## QUAN TRỌNG — KHÔNG TỰ VIẾT PYTHON CODE
+
+**Tuyệt đối không tự viết inline Python để transcribe hay xử lý file.**
+Chỉ được phép dùng đúng các lệnh CLI sau đây:
+- Transcribe: `douyin/.venv/bin/python3 -m douyin transcribe "$FOLDER/index.mp4"`
+- TTS: dùng đúng đoạn code ở Bước 4
+
+Lý do: CLI đã được cấu hình đúng (`word_timestamps=False`, output format chuẩn). Tự viết code sẽ tạo ra file sai format (có `words`, sai encoding, v.v.).
+
 Pipeline đầy đủ: **index.mp4 → transcript.json → transcript-vi.json → dub_vi.mp3 → output_vi.mp4**
 
 ## Cấu trúc thư mục chuẩn
