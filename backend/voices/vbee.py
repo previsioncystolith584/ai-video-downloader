@@ -7,13 +7,13 @@ Config (env):
   VBEE_VOICE_CODE   Default voice code
 
 Usage:
-  from douyin.voices.vbee import run_tts
+  from backend.voices.vbee import run_tts
   await run_tts(text="Xin chào", output="out.mp3")
   await run_tts(text="...", mode="sync", speed=1.3, output="out.mp3")
 
 CLI:
-  python -m douyin.voices.vbee "Xin chào"
-  python -m douyin.voices.vbee "..." --mode sync --output out.mp3
+  python -m backend.voices.vbee "Xin chào"
+  python -m backend.voices.vbee "..." --mode sync --output out.mp3
 """
 
 import asyncio
@@ -224,7 +224,7 @@ async def _cli_main():
         text = sys.stdin.read().strip()
 
     if not text:
-        print('Usage: python -m douyin.voices.vbee "text" [--mode sync|async] [-o out.mp3]',
+        print('Usage: python -m backend.voices.vbee "text" [--mode sync|async] [-o out.mp3]',
               file=sys.stderr)
         sys.exit(1)
 

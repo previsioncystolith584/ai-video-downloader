@@ -7,7 +7,7 @@ Claude Code skills để crawl, tải và lồng tiếng Việt cho video Douyin
 | Skill | Mô tả |
 |-------|-------|
 | `/douyin-crawler <url>` | Crawl danh sách video từ profile / feed page Douyin |
-| `/douyin-generator <folder>` | Dịch transcript + TTS + ghép video → `output_vi.mp4` |
+| `/voice-over <folder>` | Dịch transcript + TTS + ghép video → `output_vi.mp4` |
 
 ---
 
@@ -29,25 +29,25 @@ Crawl trang Douyin → tải luôn video (mặc định 10 video).
 Dưới hood, skill chạy:
 
 ```bash
-douyin/.venv/bin/python3 -m douyin jingxuan --url "<URL>" --max 10 --no-headless
+backend/.venv/bin/python3 -m backend jingxuan --url "<URL>" --max 10 --no-headless
 ```
 
 Output: JSON list các video với `aweme_id`, `detail_url`, `author`, `title`.
 
 ---
 
-## /douyin-generator
+## /voice-over
 
 Pipeline đầy đủ: `index.mp4` → `transcript.json` → `transcript-vi.json` → `dub_vi.mp3` → `output_vi.mp4`.
 
 ```bash
-/douyin-generator downloads/jingxuan/<video-folder>
+/voice-over downloads/jingxuan/<video-folder>
 
 # Chỉ định giọng đọc
-/douyin-generator downloads/jingxuan/<video-folder> --voice sg_female_thaotrinh_full_44k-phg.mp3
+/voice-over downloads/jingxuan/<video-folder> --voice sg_female_thaotrinh_full_44k-phg.mp3
 
 # Dùng provider khác
-/douyin-generator downloads/jingxuan/<video-folder> --provider vbee
+/voice-over downloads/jingxuan/<video-folder> --provider vbee
 ```
 
 AI tự chọn voice từ `voice/<provider>.csv` dựa trên nội dung video — không hỏi user.
@@ -70,14 +70,14 @@ downloads/<author>/<video-title>__<id>/
 
 ## Môi trường
 
-- Python venv: `douyin/.venv/bin/python3`
+- Python venv: `backend/.venv/bin/python3`
 - OmniVoice TTS server: `http://192.168.1.61:8002`
 - Providers TTS hỗ trợ: OmniVoice (mặc định), Vbee, ElevenLabs, OpenAI
 
 ## Cài đặt
 
 ```bash
-cd douyin
+cd backend
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/playwright install chromium

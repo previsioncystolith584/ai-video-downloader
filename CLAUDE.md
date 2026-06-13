@@ -6,13 +6,13 @@ Tool tải video Douyin (TikTok China) không watermark, dịch transcript và l
 
 ## Môi trường
 
-- Python venv: `douyin/.venv/bin/python3` — **luôn dùng cái này**, không dùng `python3` hệ thống
+- Python venv: `backend/.venv/bin/python3` — **luôn dùng cái này**, không dùng `python3` hệ thống
 - OmniVoice server: `http://192.168.1.61:8002`
 - Project root: `/Users/thinhlevan/Downloads/douyin-downloader`
 
 ## Skills có sẵn
 
-- `/douyin-generator <folder> [--voice <code>]` — Dịch transcript + TTS + ghép video thành output_vi.mp4
+- `/voice-over <folder> [--voice <code>]` — Dịch transcript + TTS + ghép video thành output_vi.mp4
 - `/douyin-crawler <url>` — Crawl danh sách video từ profile/trang Douyin
 
 ## Cấu trúc downloads
@@ -30,5 +30,5 @@ downloads/<author>/<video-title>__<id>/
 ## Quy tắc
 
 - Khi chạy script Python trong project này, luôn `cd` về project root trước
-- Luôn dùng `douyin/.venv/bin/python3` thay vì `python3` hay `python`
+- Luôn dùng `backend/.venv/bin/python3` thay vì `python3` hay `python`
 - File `transcript-vi.json` nếu đã tồn tại thì không dịch lại (bảo toàn chỉnh sửa tay)

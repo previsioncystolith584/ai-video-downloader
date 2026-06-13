@@ -9,10 +9,10 @@ Config (env hoặc truyền trực tiếp):
   OMNIVOICE_VOICE      (default voiceCode nếu không truyền)
   OMNIVOICE_R2_BASE_URL (mặc định https://video.mangox.dev/voice)
 
-Library voices: douyin/voices/lib/<category>/<slug>/sample.mp3 + voices.json
+Library voices: backend/voices/lib/<category>/<slug>/sample.mp3 + voices.json
 
 Usage:
-  from douyin.voices.omnivoice import run_tts, list_voices
+  from backend.voices.omnivoice import run_tts, list_voices
 
   # Dùng voice trong thư viện
   await run_tts(text="Xin chào", voice_code="tuan-anh-news", output="out.mp3")
@@ -24,8 +24,8 @@ Usage:
   await run_tts(text="...", voice_code="tuan-anh-news", speed=1.3, output="out.mp3")
 
 CLI:
-  python -m douyin.voices.omnivoice "Xin chào" --voice tuan-anh-news -o out.mp3
-  python -m douyin.voices.omnivoice --list
+  python -m backend.voices.omnivoice "Xin chào" --voice tuan-anh-news -o out.mp3
+  python -m backend.voices.omnivoice --list
 """
 
 import csv
@@ -287,9 +287,9 @@ async def _cli_main():
     text = opts["text"].strip()
     if not text:
         print(
-            'Usage: python -m douyin.voices.omnivoice "text" [--voice <code>] [-o out.mp3]\n'
-            '       python -m douyin.voices.omnivoice "text" --ref-audio mau.mp3 --ref-text "..." -o out.mp3\n'
-            "       python -m douyin.voices.omnivoice --list",
+            'Usage: python -m backend.voices.omnivoice "text" [--voice <code>] [-o out.mp3]\n'
+            '       python -m backend.voices.omnivoice "text" --ref-audio mau.mp3 --ref-text "..." -o out.mp3\n'
+            "       python -m backend.voices.omnivoice --list",
             file=sys.stderr,
         )
         sys.exit(1)

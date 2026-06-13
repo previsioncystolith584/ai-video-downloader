@@ -2,9 +2,9 @@
 downloads/
 
 # Python
-douyin/.venv/
-douyin/__pycache__/
-douyin/voices/__pycache__/
+backend/.venv/
+backend/__pycache__/
+backend/voices/__pycache__/
 __pycache__/
 *.py[cod]
 *.pyo

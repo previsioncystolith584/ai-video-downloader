@@ -9,8 +9,7 @@ description: >
   extract, hoặc liệt kê video — ngay cả khi họ không dùng từ "crawl".
 metadata:
   version: 1.1.0
-  author: MangoAds Co., Ltd.
-  copyright: Copyright (c) 2024-2026 MangoAds Co., Ltd. All rights reserved.
+  license: MIT
 ---
 
 # Douyin Crawler Skill
@@ -28,7 +27,7 @@ Crawl trang Douyin → **tải luôn** (không hỏi lại người dùng).
 ```
 douyin-downloader/
 ├── .claude/skills/douyin-crawler/SKILL.md
-├── douyin/
+├── backend/
 │   ├── .venv/           ← virtualenv
 │   ├── __init__.py
 │   ├── __main__.py      ← entry point
@@ -46,7 +45,7 @@ douyin-downloader/
 ## Cách chạy
 
 ```bash
-douyin/.venv/bin/python3 -m douyin <command> [options]
+backend/.venv/bin/python3 -m backend <command> [options]
 ```
 
 ### 1. Feed page (jingxuan, channel, category)
@@ -54,25 +53,25 @@ douyin/.venv/bin/python3 -m douyin <command> [options]
 Mặc định 10 video, tải luôn:
 
 ```bash
-douyin/.venv/bin/python3 -m douyin jingxuan --url "<URL>" --max 10 --no-headless
+backend/.venv/bin/python3 -m backend jingxuan --url "<URL>" --max 10 --no-headless
 ```
 
 Nếu user chỉ định số lượng (ví dụ 30):
 
 ```bash
-douyin/.venv/bin/python3 -m douyin jingxuan --url "<URL>" --max 30 --no-headless
+backend/.venv/bin/python3 -m backend jingxuan --url "<URL>" --max 30 --no-headless
 ```
 
 ### 2. User profile
 
 ```bash
-douyin/.venv/bin/python3 -m douyin user "<URL>" --max 10
+backend/.venv/bin/python3 -m backend user "<URL>" --max 10
 ```
 
 ### 3. Video detail / link trực tiếp
 
 ```bash
-douyin/.venv/bin/python3 -m douyin dl "<URL>"
+backend/.venv/bin/python3 -m backend dl "<URL>"
 ```
 
 ## Output format
